@@ -1,11 +1,12 @@
 # Psych Bot
 
 ### Navigation
-- [Project Setup](#setup)
-- [Project Description](#project-desc)
-- [Project Documentation](#project-docs)
+- [Project Setup](#project-setup)
+- [Project Description](#project-description)
+- [Project Documentation](#project-documentation)
 - [Project Demo](#project-demo)
 - [Contributors](#contributors)
+
 ## Project Setup
 
 ***Pre-requisites*** - Install the latest version of Python on your computer. After cloning the repository to your computer, follow these steps to launch the program:
@@ -34,8 +35,8 @@ The project was created for the UBC Okanagan third year level course.
 // TODO
 ## Contributors
 
-- [@d3li0n] (https://github.com/d3li0n) - Documentation and Project Manager.
-- [@KentonMewling] (https://github.com/KentonMewling) - Dictionary for chatbot responses.
-- [@RyanG418] (https://github.com/RyanG418) - Dictionary for chatbot.
-- [@vinui409] (https://github.com/vinui409) - Core Development.
-- [@OKThomas1] (https://github.com/OKThomas1) - Core Development. 
+- [@d3li0n](https://github.com/d3li0n) - Documentation and Project Manager.
+- [@KentonMewling](https://github.com/KentonMewling) - Dictionary for chatbot responses.
+- [@RyanG418](https://github.com/RyanG418) - Dictionary for chatbot responses.
+- [@vinui409](https://github.com/vinui409) - Core Development.
+- [@OKThomas1](https://github.com/OKThomas1) - Core Development. 
