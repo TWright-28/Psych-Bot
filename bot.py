@@ -21,8 +21,6 @@ def find_node(id):
 			return node
 	return None
 
-name = ""
-
 name = input("Hello, I am Psych-Bot. What is your name?")
 
 input(f"Hello {name}, how are you feeling today?")
@@ -48,6 +46,3 @@ while current != None:
 					current = child
 			if current == child:
 				break
-
-
-
