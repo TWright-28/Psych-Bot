@@ -73,12 +73,15 @@
     {
       "id": "talkingyes",
       "children": ["nonprescribed"],
+      "condition": "yes_words",
       "text": "That's good, it's good to have someone to talk to.",
       "print": true
     },
     {
       "id": "talkingno",
       "children": ["nonprescribed"],
+      "condition": "no_words",
+      "default": true,
       "text": "You should have someone outside of therapy to talk to about these feelings you are having.",
       "print": true
     },
@@ -135,8 +138,18 @@
     },
     {
       "id": "wrapup",
-      "children": [null],
+      "children": ["otherquestions"],
       "text": "Okay that wraps up our session for today. For homework this week you should write down how you are feeling each day on a scale from 1-100?"
+    },
+    {
+      "id": "otherquestions",
+      "children": ["seeyou"],
+      "text": "Do you have any other questions?"
+    },
+    {
+      "id": "seeyou",
+      "children": [null],
+      "text": "Great, hope to see you next week!"
     }
   ]
 }

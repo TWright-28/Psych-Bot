@@ -28,16 +28,16 @@ name = input("Hello, I am Psych-Bot. What is your name?")
 input(f"Hello {name}, how are you feeling today?")
 current = nodes[0]
 
-while current["children"] != None:
+while current != None:
 	if 'print' in current:
 		print(current['text'])
-		current = current['children'][0]
+		current = find_node(current['children'][0])
 		continue
 	answer = input(current['text'])
 	if len(current['children']) == 1:
 		current = find_node(current['children'][0])
 	else:
-		answer_words = [stemmer.stem(word) for word in answer.split(" ")]
+		answer_words = [stemmer.stem(word) for word in answer.lower().split(" ")]
 		for child in current['children']:
 			child = find_node(child)
 			if 'default' in child:
