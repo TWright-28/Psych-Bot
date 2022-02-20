@@ -1,5 +1,10 @@
 {
-  "conditions": {"yes_words": ["yes", "ya", "yea", "yeah", "i do", "ok", "okay", "y"], "no_words": ["no", "nope", "nah", "na", "dont", "do not", "n"], "family_words": ["family"], "friends_words": ["friend"]},
+  "conditions": {
+		"yes_words": ["yes", "ya", "yea", "yeah", "i do", "ok", "okay", "y", "Yes I do", "Yes, I do"], 
+		"no_words": ["no", "nope", "nah", "na", "dont", "do not", "n", "I don't", "I do not", "No, I don't", "No, I do not", "No, I donot", "No I donot", "No I don't"], 
+		"family_words": ["family"], 
+		"friends_words": ["friend"]
+	},
   "nodes": [
     {
       "id": "howlongfeel",
@@ -139,17 +144,26 @@
     {
       "id": "wrapup",
       "children": ["otherquestions"],
-      "text": "Okay that wraps up our session for today. For homework this week you should write down how you are feeling each day on a scale from 1-100?"
+      "text": "Okay that wraps up our session for today. For homework this week you should write down how you are feeling each day on a scale from 1-100. Can you do it for me?"
     },
     {
       "id": "otherquestions",
-      "children": ["seeyou"],
+      "children": ["otherquestionsrequest", "seeyou"],
       "text": "Do you have any other questions?"
     },
+		{
+			"id": "otherquestionsrequest",
+			"children": [null],
+			"condition": "yes_words",
+			"text": "Hmmm, It seems like we are running out of scheduled time. I would recommend you to call our hotline. Other than that, have a good day! Don't forget about your homework.",
+			"print": true
+		},
     {
       "id": "seeyou",
       "children": [null],
-      "text": "Great, hope to see you next week!"
+			"condition": "no_words",
+      "text": "Great, hope to see you next week!",
+			"print": true
     }
   ]
 }
