@@ -1,6 +1,6 @@
 # Files to ignore
 .DS_Store
 
-# Fplders to ignore
+# Folders to ignore
 __pycache__/
 venv
