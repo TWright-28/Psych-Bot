@@ -53,7 +53,7 @@ python3 bot.py
 ## Project Description
 The project was created for the UBC Okanagan third year level course.
 
-**Psych Bot's** goal is to give the user psychological advice to the user*. This bot serves as an interactive conversational agent that takes the user's input (sentence) and outputs an appropriate response. As this assignment doesn't require Machine Learning implementation, the chatbot may provide a reply that may not relate to the user's prompt.
+**Psych Bot's** goal is to give the user psychological advice*. This bot serves as an interactive conversational agent that takes the user's input (sentence) and outputs an appropriate response. As this assignment doesn't require Machine Learning implementation, the chatbot may provide a reply that may not relate to the user's prompt.
 
 
 *For **legal** reasons, neither the bot nor developers are certified to provide medical help.
