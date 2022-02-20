@@ -1,3 +1,6 @@
-venv
-
+# Files to ignore
 .DS_Store
+
+# Fplders to ignore
+__pycache__/
+venv
