@@ -39,12 +39,12 @@ python bot.py
 
 ### **For Unix Based Systems**  
 &nbsp;  
-**Step 2:** Open a terminal in your VSCode by going to ***Terminal > New Terminal***
+**Step 2:** Open a terminal in your VSCode by going to ***Terminal > New Terminal***  
 **Step 3:** Run the following to command to install all necessary dependecies:
 ```bash
 pip install -r requirements.txt
 ```  
-**Step 5:** Start the program by running this command:
+**Step 4:** Start the program by running this command:
 ```bash
 python3 bot.py
 ```
@@ -60,10 +60,23 @@ The project was created for the UBC Okanagan third year level course.
 
 
 ## Project Documentation
-// TODO: Complete once the folder "docs" is created
+- [Project Plan Document]()
+- [Word Breakdown Structure](https://github.com/KentonMewling/Psych-Bot/blob/799619d145201feb0c717fb3b9ac1a5a187d93de/docs/WBS.png)
+- [Gantt Chart](https://github.com/KentonMewling/Psych-Bot/blob/5ab5810cc298b651edb13575fe4c1d3a0a461d23/docs/Gantt%20Chart.png)
+- [Network Graph/Branch & Commits](https://github.com/KentonMewling/Psych-Bot/network)
 
-## Project Demo
-// TODO
+## Project Demo 
+
+**Sample Demo #1**
+
+
+![First demo of the project](./docs/images/Demo1.png)
+
+**Sample Demo #2**
+
+
+![Second demo of the project](./docs/images/Demo2.png)
+
 ## Contributors
 
 - [@d3li0n](https://github.com/d3li0n) - Documentation and Project Manager.
