@@ -1,8 +1,11 @@
 from nltk.stem.porter import PorterStemmer
 
-from fileParser import FileReader
+from fileReader import FileReader
 
 class Bot:
+	"""
+		Method Documentation goes here
+	"""
 	def __init__(self):
 		self.stemmer = PorterStemmer()
 		self.conditions = {}
@@ -10,6 +13,9 @@ class Bot:
 		self.setUserName()
 		self.initializeChat()
 
+	"""
+		Method Documentation goes here
+	"""
 	def initialize(self):
 		self.data = FileReader().getFileContent()
 		self.nodes = self.data['nodes']
@@ -18,6 +24,9 @@ class Bot:
 			words = [self.stemmer.stem(word) for word in self.data['conditions'][key]]
 			self.conditions[key] = words
 
+	"""
+		Method Documentation goes here
+	"""
 	def findNode(self, id):
 		if id is None:
 			return None
@@ -26,12 +35,24 @@ class Bot:
 				return node
 		return None
 
+	"""
+		Method Documentation goes here
+	"""
 	def setUserName(self):
-		name = input("Hello, I am Psych-Bot. What is your name? ")
+		self.name = input("Hello, I am Psych-Bot. What is your name? ")
 
-		input(f"Hello {name}, how are you feeling today? ")
+		input(f"Hello {self.name}, how are you feeling today? ")
 		self.current = self.nodes[0]
 	
+	"""
+		Method Documentation goes here
+	"""
+	def getUserName(self):
+		return self.name
+ 
+	"""
+		Method Documentation goes here
+	"""
 	def initializeChat(self):
 		nodeValue = self.current
 
@@ -62,5 +83,8 @@ class Bot:
 					if nodeValue == child:
 						break
 
+"""
+	Method Documentation goes here
+"""
 if __name__ == '__main__':
 	Bot()
