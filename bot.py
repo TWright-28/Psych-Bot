@@ -21,9 +21,9 @@ def find_node(id):
 			return node
 	return None
 
-name = input("Hello, I am Psych-Bot. What is your name?")
+name = input("Hello, I am Psych-Bot. What is your name? ")
 
-input(f"Hello {name}, how are you feeling today?")
+input(f"Hello {name}, how are you feeling today? ")
 current = nodes[0]
 
 while current != None:
@@ -31,7 +31,7 @@ while current != None:
 		print(current['text'])
 		current = find_node(current['children'][0])
 		continue
-	answer = input(current['text'])
+	answer = input(f"{current['text']} ")
 	if len(current['children']) == 1:
 		current = find_node(current['children'][0])
 	else:
