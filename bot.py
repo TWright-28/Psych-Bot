@@ -43,6 +43,10 @@ class Bot:
 			
 			answer = input(f"{nodeValue['text']}\n- ")
 			
+			if answer.lower() == "quit":
+				print("Thank you for your questions. Have a nice day!")
+				break
+
 			if len(nodeValue['children']) == 1:
 				nodeValue = self.findNode(nodeValue['children'][0])
 			else:
