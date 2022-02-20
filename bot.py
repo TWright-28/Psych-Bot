@@ -31,7 +31,7 @@ while current != None:
 		print(current['text'])
 		current = find_node(current['children'][0])
 		continue
-	answer = input(f"{current['text']} ")
+	answer = input(f"{current['text']}\n- ")
 	if len(current['children']) == 1:
 		current = find_node(current['children'][0])
 	else:
