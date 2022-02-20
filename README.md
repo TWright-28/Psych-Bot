@@ -60,7 +60,7 @@ The project was created for the UBC Okanagan third year level course.
 
 
 ## Project Documentation
-- [Project Plan Document]()
+- [Project Plan Document](https://github.com/KentonMewling/Psych-Bot/blob/5dde54c2da8baa6718d7338cbed7b028a8875089/docs/Assignment%202%20Project%20Plan.pdf)
 - [Word Breakdown Structure](https://github.com/KentonMewling/Psych-Bot/blob/799619d145201feb0c717fb3b9ac1a5a187d93de/docs/WBS.png)
 - [Gantt Chart](https://github.com/KentonMewling/Psych-Bot/blob/5ab5810cc298b651edb13575fe4c1d3a0a461d23/docs/Gantt%20Chart.png)
 - [Network Graph/Branch & Commits](https://github.com/KentonMewling/Psych-Bot/network)
