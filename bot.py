@@ -1,48 +1,90 @@
-from nltk.stem.porter import PorterStemmer
-import json
+from nltkno import PorterStemmer
 
-stemmer = PorterStemmer()
+from fileReader import FileReader
 
-with open("data.json", "r") as file:
-	data = json.loads(file.read())
+class Bot:
+	"""
+		Method Documentation goes here
+	"""
+	def __init__(self):
+		self.stemmer = PorterStemmer()
+		self.conditions = {}
+		self.initialize()
+		self.setUserName()
+		self.initializeChat()
 
-conditions = {}
-nodes = data['nodes']
+	"""
+		Method Documentation goes here
+	"""
+	def initialize(self):
+		self.data = FileReader().getFileContent()
+		self.nodes = self.data['nodes']
 
-for key in data['conditions'].keys():
-	words = [stemmer.stem(word) for word in data['conditions'][key]]
-	conditions[key] = words
+		for key in self.data['conditions'].keys():
+			words = [self.stemmer.stem(word) for word in self.data['conditions'][key]]
+			self.conditions[key] = words
 
-def find_node(id):
-	if id is None:
+	"""
+		Method Documentation goes here
+	"""
+	def findNode(self, id):
+		if id is None:
+			return None
+		for node in self.nodes:
+			if node['id'] == id:
+				return node
 		return None
-	for node in nodes:
-		if node['id'] == id:
-			return node
-	return None
 
-name = input("Hello, I am Psych-Bot. What is your name? ")
+	"""
+		Method Documentation goes here
+	"""
+	def setUserName(self):
+		self.name = input("Hello, I am Psych-Bot. What is your name? ")
 
-input(f"Hello {name}, how are you feeling today? ")
-current = nodes[0]
+		input(f"Hello {self.name}")
+		self.current = self.nodes[0]
+	
+	"""
+		Method Documentation goes here
+	"""
+	def getUserName(self):
+		return self.name
+ 
+	"""
+		Method Documentation goes here
+	"""
+	def initializeChat(self):
+		nodeValue = self.current
 
-while current != None:
-	if 'print' in current:
-		print(current['text'])
-		current = find_node(current['children'][0])
-		continue
-	answer = input(f"{current['text']}\n- ")
-	if len(current['children']) == 1:
-		current = find_node(current['children'][0])
-	else:
-		answer_words = [stemmer.stem(word) for word in answer.lower().split(" ")]
-		for child in current['children']:
-			child = find_node(child)
-			if 'default' in child:
-				current = child
+		while nodeValue != None:
+			if 'print' in nodeValue:
+				print(nodeValue['text'])
+				nodeValue = self.findNode(nodeValue['children'][0])
+				continue
+			
+			answer = input(f"{nodeValue['text']}\n- ")
+			
+			if answer.lower() == "quit":
+				print("Thank you for your questions. Have a nice day!")
 				break
-			for word in conditions[child['condition']]:
-				if word in answer_words:
-					current = child
-			if current == child:
-				break
+
+			if len(nodeValue['children']) == 1:
+				nodeValue = self.findNode(nodeValue['children'][0])
+			else:
+				answer_words = [self.stemmer.stem(word) for word in answer.lower().split(" ")]
+				for child in nodeValue['children']:
+					child = self.findNode(child)
+					if 'default' in child:
+						nodeValue = child
+						break
+					for word in self.conditions[child['condition']]:
+						if word in answer_words:
+							nodeValue = child
+					if nodeValue == child:
+						break
+
+"""
+	Method Documentation goes here
+"""
+if __name__ == '__main__':
+	Bot()
