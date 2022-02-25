@@ -4,3 +4,5 @@
 # Folders to ignore
 __pycache__/
 venv
+.vs/
+ven/
