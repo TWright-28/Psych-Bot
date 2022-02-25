@@ -3,54 +3,107 @@
 		"yes_words": ["yes", "ya", "yea", "yeah", "i do", "ok", "okay", "y", "Yes I do", "Yes, I do"], 
 		"no_words": ["no", "nope", "nah", "na", "dont", "do not", "n", "I don't", "I do not", "No, I don't", "No, I do not", "No, I donot", "No I donot", "No I don't"], 
 		"family_words": ["family"], 
-		"friends_words": ["friend"]
+		"friends_words": ["friend"],
+    "bad_words": ["bad", "crappy", "shitty", "not good"],
+    "good_words": ["good", "great", "awesome"]
 	},
   "nodes": [
     {
       "id": "howlongfeel",
       "children": ["prescribedmeds"],
-      "text": "How long have you been feeling like this?"
-    },
-    {
-      "id": "prescribedmeds",
-      "children": ["prescribedmedsyes", "prescribedmedsno"],
-      "text": "Are you on any prescribed medication at the moment?"
-    },
-    {
-      "id": "prescribedmedsyes",
-      "children": ["seekprofessional"],
-      "condition": "yes_words",
-      "text": "Did they seem to help?"
-    },
-    {
-      "id": "prescribedmedsno",
-      "children": ["seekprofessional"],
-      "condition": "no_words",
-      "text": "How come?",
+      "condition": "bad_words",
+      "text": "How long have you been feeling like this?",
       "default": true
     },
     {
+      "id": "feelingGood",
+      "children": ["howlongfeel"],
+      "condition": "good_words",
+      "text": "Thats good to hear!"
+    },
+    {
+      "id": "prescribedmeds",
+      "children": ["prescribedmedsyes", "seekprofessional"],
+      "text": "Has a doctor ever prescribed medication to you to help with depression, anxiety, behavior, or mental problems (such as Ritalin, antidepressants, etc.)?"
+    },
+    {
+      "id": "prescribedmedsyes",
+      "children": ["prescribedmedsfor"],
+      "condition": "yes_words",
+      "text": "What were they prescribed for?"
+    },
+    {
+      "id": "prescribedmedsfor",
+      "children": ["medstoday"],
+      "text": "Did they seem to help?"
+    },
+    {
+      "id": "medstoday",
+      "children": ["seekprofessional"],
+      "text": "Are you still on this medication today?"
+    },
+    {
       "id": "seekprofessional",
+      "children": ["psychiatrichospital"],
+      "text": "Have you sought out any professional medical service in the last 30 days?",
+      "default": ["prescribedmeds"]
+    },
+    {
+      "id": "psychiatrichospital",
+      "children": ["psychiatrichospitalyes","suicidalthoughts"],
+      "text": "Have you ever been placed in a psychiatric hospital?"
+    },
+    {
+      "id": "psychiatrichospitalyes",
       "children": ["suicidalthoughts"],
-      "text": "Have you seeked out any professional medical service in the last 30 days?"
+      "condition": "yes_words",
+      "text": "what was the reason you were in a psychiatric hospital?"
     },
     {
       "id": "suicidalthoughts",
       "children": ["suicidalthoughtsyes", "suicidalthoughtsno"],
-      "text": "Have you had any suicidal thoughts lately?"
+      "text": "Have you had any suicidal thoughts lately?",
+      "default": ["psychiatrichospital"]
     },
     {
       "id": "suicidalthoughtsyes",
-      "children": ["supportgroup"],
+      "children": ["suicidalthoughtsno"],
       "condition": "yes_words",
       "text": "Is there any reason why?"
     },
     {
       "id": "suicidalthoughtsno",
-      "children": ["supportgroup"],
+      "children": ["hurtingothers"],
       "condition": "no_words",
       "text": "What about any thoughts about self-harm?",
       "default": true
+    },
+    {
+      "id": "hurtingothers",
+      "children": ["chargedwithcrime"],
+      "text": "Have you though of hurting others?"
+    },
+    {
+      "id": "chargedwithcrime",
+      "children": ["chargedwithcrimeyes","chargedwithcrimeno"],
+      "text": "Have you ever been arrested or charged with a crime before?"
+    },
+    {
+      "id": "chargedwithcrimeyes",
+      "children": ["whenlastcrime"],
+      "condition": "yes_words",
+      "text": "What was the crime that you commited?"
+    },
+    {
+      "id": "whenlastcrime",
+      "children": ["supportgroup"],
+      "text": "When was the last time you commited a crime?"
+    },
+    {
+      "id": "chargedwithcrimeno",
+      "children": ["supportgroup"],
+      "condition": "no_words",
+      "text": "Have you ever committed a serious offense that you never took legal action for?"
     },
     {
       "id": "supportgroup",
@@ -59,13 +112,13 @@
     },
     {
       "id": "supportgroupfriends",
-      "children": ["nonprescribed"],
+      "children": ["activelyworking"],
       "text": "Have you tried including your family in your support group?",
       "condition": "friends_words"
     },
     {
       "id": "supportgroupfamily",
-      "children": ["nonprescribed"],
+      "children": ["activelyworking"],
       "text": "Have you tried including your friends in your support group?",
       "condition": "family_words"
     },
@@ -77,18 +130,57 @@
     },
     {
       "id": "talkingyes",
-      "children": ["nonprescribed"],
+      "children": ["activelyworking"],
       "condition": "yes_words",
       "text": "That's good, it's good to have someone to talk to.",
       "print": true
     },
     {
       "id": "talkingno",
-      "children": ["nonprescribed"],
+      "children": ["activelyworking"],
       "condition": "no_words",
       "default": true,
       "text": "You should have someone outside of therapy to talk to about these feelings you are having.",
       "print": true
+    },
+    {
+      "id": "activelyworking",
+      "children": ["whereworking", "activelyworkingno"],
+      "text": "Are you actively working right now?"
+    },
+    {
+      "id": "whereworking",
+      "children": ["enjoyworking"],
+      "condition": "yes_words",
+      "text": "Where are you working?"
+    },
+    {
+      "id": "enjoyworking",
+      "children": ["coworkers"],
+      "text": "Do you enjoy working there?"
+    },
+    {
+      "id": "coworkers",
+      "children": ["nonprescribed"],
+      "text": "How are your coworkers? Can you tell me something interesting about one of them?"
+    },
+    {
+      "id": "activelyworkingno",
+      "children": ["leavingwork"],
+      "condition": "no_words",
+      "text": "When did you last work?",
+      "default": true
+    },
+  
+    {
+      "id": "leavingwork",
+      "children": ["payingbills"],
+      "text": "What was your reasoning for leaving?"
+    },
+    {
+      "id": "payingbills",
+      "children": ["nonprescribed"],
+      "text": "How are you paying for your bills at the moment?"
     },
     {
       "id": "nonprescribed",
@@ -107,7 +199,8 @@
       "children": ["physicalactivity"],
       "condition": "no_words",
       "text": "Good. Drugs and alcohol can be highly addictive.",
-      "print": true
+      "print": true,
+      "default": true
     },
     {
       "id": "physicalactivity",
@@ -122,24 +215,59 @@
     },
     {
       "id": "socializedeventsyes",
-      "children": ["wrapup"],
+      "children": ["videogames"],
       "condition": "yes_words",
       "text": "Good, physical activity and socializing with others is good for your mental health.",
       "print": true
     },
     {
       "id": "socializedeventsno",
-      "children": ["wrapup"],
+      "children": ["videogames"],
       "condition": "no_words",
       "text": "You should look for some group sports its good for your mental health.",
-      "print": true
+      "print": true,
+      "default": true
     },
     {
       "id": "physicalactivityno",
-      "children": ["wrapup"],
+      "children": ["videogames"],
       "condition": "no_words",
       "text": "You should look for some group sports its good for your mental health.",
-      "print": true
+      "print": true,
+      "default": true
+    },
+    {
+      "id": "videogames",
+      "children": ["favouritegameyes","favouritegameno"],
+      "text": "Do you play any games or video games in your free time?"
+    },
+    {
+      "id": "favouritegameyes",
+      "children": ["whyfavourite"],
+      "condition": "yes_words",
+      "text": "What is your favorite game?"
+    },
+    {
+      "id": "whyfavourite",
+      "children": ["favouritegamecont"],
+      "text": "Why is that your favourite game?"
+    },
+    {
+      "id": "favouritegamecont",
+      "children": ["wrapup"],
+      "text": "That's good to hear, it's good to have a stress reliever that you can have at any moments notice"
+    },
+    {
+      "id": "favouritegameno",
+      "children": ["whynogames"],
+      "condition": "no_words",
+      "text": "How come you dont play games?",
+      "default": true
+    },
+    {
+      "id": "whynogames",
+      "children": ["wrapup"],
+      "text": "Video games are a great way to relieve stress and are available almost always so you   should try to find a game that you may enjoy. It can really help brighten ones mood!"
     },
     {
       "id": "wrapup",
@@ -167,3 +295,4 @@
     }
   ]
 }
+
