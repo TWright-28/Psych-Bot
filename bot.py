@@ -5,6 +5,7 @@ from fileReader import FileReader
 class Bot:
 	"""
 		Method Documentation goes here
+			-constructor to initialize constant class variables	 
 	"""
 	def __init__(self):
 		self.stemmer = PorterStemmer()
@@ -15,6 +16,7 @@ class Bot:
 
 	"""
 		Method Documentation goes here
+			-using the file reader to read in the data. using the stemmer class to check if the key matches the condition of the word. 
 	"""
 	def initialize(self):
 		self.data = FileReader().getFileContent()
@@ -26,6 +28,7 @@ class Bot:
 
 	"""
 		Method Documentation goes here
+			-returns a node for the given id, if exists.
 	"""
 	def findNode(self, id):
 		if id is None:
@@ -37,6 +40,8 @@ class Bot:
 
 	"""
 		Method Documentation goes here
+			-Asks instructed questions and returns the user's name.
+			-includes a couple logic error catch
 	"""
 	def setUserName(self):
 		self.name = input("Hello, I am Psych-Bot. What is your name? ")
@@ -53,12 +58,14 @@ class Bot:
 	
 	"""
 		Method Documentation goes here
+			Return the user's name
 	"""
 	def getUserName(self):
 		return self.name
  
 	"""
 		Method Documentation goes here
+			-this runs the main chat loop, exits when the next node is none.
 	"""
 	def initializeChat(self):
 		nodeValue = self.current
@@ -95,6 +102,7 @@ class Bot:
 
 """
 	Method Documentation goes here
+		-runs the chat with the command 'python bot.py'
 """
 if __name__ == '__main__':
 	Bot()
