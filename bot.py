@@ -1,4 +1,4 @@
-from nltkno import PorterStemmer
+from nltk.stem.porter import PorterStemmer
 
 from fileReader import FileReader
 
@@ -40,8 +40,7 @@ class Bot:
 	"""
 	def setUserName(self):
 		self.name = input("Hello, I am Psych-Bot. What is your name? ")
-
-		input(f"Hello {self.name}")
+		input(f"Hello {self.name}, how are you feeling today? ")
 		self.current = self.nodes[0]
 	
 	"""
