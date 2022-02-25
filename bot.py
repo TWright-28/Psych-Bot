@@ -40,7 +40,15 @@ class Bot:
 	"""
 	def setUserName(self):
 		self.name = input("Hello, I am Psych-Bot. What is your name? ")
-		input(f"Hello {self.name}, how are you feeling today? ")
+		
+		while len(self.name) == 0:
+			self.name = input("I didn't get your name, please, repeat.\n- ")
+
+		response = input(f"Hello {self.name}.\nI am glad to have you here today, How are you feeling?\n- ")
+
+		while len(response) == 0:
+			response = input("Sorry, what did you say?\n- ")
+
 		self.current = self.nodes[0]
 	
 	"""
@@ -54,7 +62,7 @@ class Bot:
 	"""
 	def initializeChat(self):
 		nodeValue = self.current
-
+		
 		while nodeValue != None:
 			if 'print' in nodeValue:
 				print(nodeValue['text'])
@@ -63,6 +71,9 @@ class Bot:
 			
 			answer = input(f"{nodeValue['text']}\n- ")
 			
+			while len(answer) == 0:
+				answer = input("Sorry, what did you say?\n- ")
+
 			if answer.lower() == "quit":
 				print("Thank you for your questions. Have a nice day!")
 				break

@@ -9,16 +9,11 @@
 	},
   "nodes": [
     {
-      "id": "welcome",
-      "children": ["feelingGood", "howlongfeel"],
-      "text": "I am glad to have you here today, How are you feeling?"
-    },
-    {
       "id": "howlongfeel",
       "children": ["prescribedmeds"],
       "condition": "bad_words",
       "text": "How long have you been feeling like this?",
-      "default":  true
+      "default": true
     },
     {
       "id": "feelingGood",
@@ -167,7 +162,7 @@
     {
       "id": "coworkers",
       "children": ["nonprescribed"],
-      "text": "How are your coworkers?Can you tell me something interesting about one of them?"
+      "text": "How are your coworkers? Can you tell me something interesting about one of them?"
     },
     {
       "id": "activelyworkingno",
