@@ -4,8 +4,7 @@ from fileReader import FileReader
 
 class Bot:
 	"""
-	Constructor to initialize constant class variables.
-	
+		Constructor to initialize constant class variables, and start the program.
 	"""
 	def __init__(self):
 		self.stemmer = PorterStemmer()
@@ -15,8 +14,7 @@ class Bot:
 		self.initializeChat()
 
 	"""
-	Using the file reader to read in the data. using the stemmer class to check if the key matches the condition of the word.
-
+		Using the file reader to read in the data. using the stemmer class to check if the key matches the condition of the word.
 	"""
 	def initialize(self):
 		self.data = FileReader().getFileContent()
@@ -27,8 +25,7 @@ class Bot:
 			self.conditions[key] = words
 
 	"""
-	Returns a node for the given id, if exists.
-
+		Returns a node for the given id, if exists.
 	"""
 	def findNode(self, id):
 		if id is None:
@@ -39,9 +36,9 @@ class Bot:
 		return None
 
 	"""
-	Asks instructed questions and returns the user's name.
-	Includes a couple logic error catch.
-
+		Method asks user for their name, and sets the name to a class variable.
+		If the program receives an empty response, user will be prompted to enter the answer again.
+		The response to the second question is saved to the node, which will be used in initializeChat method.
 	"""
 	def setUserName(self):
 		self.name = input("Hello, I am Psych-Bot. What is your name? ")
@@ -57,15 +54,15 @@ class Bot:
 		self.current = self.nodes[0]
 	
 	"""
-	Return the user's name.
-
+		Return the user's name.
 	"""
 	def getUserName(self):
 		return self.name
  
 	"""
-	This runs the main chat loop, exits when the next node is none.
-
+		This runs the main chat loop, exits when the next node is none.
+		If the user inputs keyword "quit," program will exit.
+		If the user inputs an empty input, program will prompt to enter correct response.
 	"""
 	def initializeChat(self):
 		nodeValue = self.current
@@ -101,8 +98,7 @@ class Bot:
 						break
 
 """
-Runs the chat with the command 'python bot.py'.
-
+	Runs the chat with the command 'python bot.py'.
 """
 if __name__ == '__main__':
 	Bot()
