@@ -6,6 +6,7 @@
 - [Project Documentation](#project-documentation)
 - [Project Demo](#project-demo)
 - [Contributors](#contributors)
+- [Presentation](#presentation)
 
 ## Project Setup
 
@@ -83,6 +84,9 @@ The project was created for the UBC Okanagan third year level course.
 
 
 ![Third demo of the project](./docs/images/good3.png)
+
+## Presentation 
+https://drive.google.com/file/d/1d1YoKrsMo2QLvyRmTXqykamdag-MjdqK/view
 
 ## Contributors
 
