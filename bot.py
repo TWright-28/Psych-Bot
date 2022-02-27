@@ -4,8 +4,8 @@ from fileReader import FileReader
 
 class Bot:
 	"""
-		Method Documentation goes here
-			-constructor to initialize constant class variables	 
+	Constructor to initialize constant class variables.
+	
 	"""
 	def __init__(self):
 		self.stemmer = PorterStemmer()
@@ -15,8 +15,8 @@ class Bot:
 		self.initializeChat()
 
 	"""
-		Method Documentation goes here
-			-using the file reader to read in the data. using the stemmer class to check if the key matches the condition of the word. 
+	Using the file reader to read in the data. using the stemmer class to check if the key matches the condition of the word.
+
 	"""
 	def initialize(self):
 		self.data = FileReader().getFileContent()
@@ -27,8 +27,8 @@ class Bot:
 			self.conditions[key] = words
 
 	"""
-		Method Documentation goes here
-			-returns a node for the given id, if exists.
+	Returns a node for the given id, if exists.
+
 	"""
 	def findNode(self, id):
 		if id is None:
@@ -39,9 +39,9 @@ class Bot:
 		return None
 
 	"""
-		Method Documentation goes here
-			-Asks instructed questions and returns the user's name.
-			-includes a couple logic error catch
+	Asks instructed questions and returns the user's name.
+	Includes a couple logic error catch.
+
 	"""
 	def setUserName(self):
 		self.name = input("Hello, I am Psych-Bot. What is your name? ")
@@ -57,15 +57,15 @@ class Bot:
 		self.current = self.nodes[0]
 	
 	"""
-		Method Documentation goes here
-			Return the user's name
+	Return the user's name.
+
 	"""
 	def getUserName(self):
 		return self.name
  
 	"""
-		Method Documentation goes here
-			-this runs the main chat loop, exits when the next node is none.
+	This runs the main chat loop, exits when the next node is none.
+
 	"""
 	def initializeChat(self):
 		nodeValue = self.current
@@ -101,8 +101,8 @@ class Bot:
 						break
 
 """
-	Method Documentation goes here
-		-runs the chat with the command 'python bot.py'
+Runs the chat with the command 'python bot.py'.
+
 """
 if __name__ == '__main__':
 	Bot()
