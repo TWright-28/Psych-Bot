@@ -86,7 +86,7 @@ The project was created for the UBC Okanagan third year level course.
 ![Third demo of the project](./docs/images/good3.png)
 
 ## Presentation 
-![Click here to view the presentation of Psych-Bot](https://drive.google.com/file/d/1d1YoKrsMo2QLvyRmTXqykamdag-MjdqK/view)
+https://drive.google.com/file/d/1d1YoKrsMo2QLvyRmTXqykamdag-MjdqK/view
 
 ## Contributors
 
