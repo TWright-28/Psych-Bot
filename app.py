@@ -119,7 +119,7 @@ class GUI:
             self.renderMessage(msg1)
             self.renderMessage(self.bot.setUserName(msg))
         else:
-            # if no more nodes in dialogue, exit the program
+            # if no more nodes in dialogue or user printed "quit" - exit the program
             try:
                 response = self.bot.getResponse(msg)['text']
             except:
@@ -129,10 +129,6 @@ class GUI:
             msg1 = f"> {self.bot.getUserName()}: {msg}\n\n"
             self.renderMessage(msg1)
 
-            # if user printed quit, exit the program
-            if response == -1:
-                sys.exit() 
-            
             # render user's message
             msg2 = f"> Bot: {response}\n\n"
             self.renderMessage(msg2)

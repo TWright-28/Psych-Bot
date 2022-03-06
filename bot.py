@@ -63,6 +63,9 @@ class Bot:
 			self.current = nodeValue
 			return nodeValue
 
+		if answer.lower() == "quit":
+			return -1
+		
 		if len(nodeValue['children']) == 1:
 			nodeValue = self.findNode(nodeValue['children'][0])
 		else:
