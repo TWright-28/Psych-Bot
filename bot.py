@@ -10,18 +10,24 @@ class Bot:
 		self.name = ""
 		self.stemmer = PorterStemmer()
 		self.conditions = {}
-		self.initialize()
+		self.initialize("data.json")
 
 	"""
 		Using the file reader to read in the data. using the stemmer class to check if the key matches the condition of the word.
 	"""
-	def initialize(self):
-		self.data = FileReader().getFileContent()
+	def initialize(self, filePath):
+		self.data = FileReader(filePath).getFileContent()
 		self.nodes = self.data['nodes']
 
 		for key in self.data['conditions'].keys():
 			words = [self.stemmer.stem(word) for word in self.data['conditions'][key]]
 			self.conditions[key] = words
+
+	"""
+		Returns the content of JSON Object of data.json file.
+	"""
+	def getData(self):
+		return self.data
 
 	"""
 		Returns a node for the given id, if exists.
@@ -52,10 +58,18 @@ class Bot:
 		return self.name
  
 	"""
-		TODO: Rewrite the purpose of the method.
-		This runs the main chat loop, exits when the next node is none.
+		Method looks over the node of the responses based on the user's input.
+		If main node has subnodes(e.g., the user answered yes to the question instead of), method will look for the child nodes to find 
+		correct answer.
+		On the other hand, if the node doesn't have subnodes, it will proceed to the next node based on the user's response.
+		Method also validates if username was provided, and if user asked to quit the program.
+		The method return object of node.
 	"""
 	def getResponse(self, answer):
+		
+		if self.getUserName() == -1:
+			return None
+
 		nodeValue = self.current
 		
 		if 'print' in nodeValue:

@@ -1,18 +1,21 @@
 import json
-
+import sys
 class FileReader:
 	"""
 		Constructor method
 	"""
-	def __init__(self):
-		self.fileContent = self.parseFile()
-
+	def __init__(self, filePath):
+		try:
+			self.fileContent = self.parseFile(filePath)
+		except:
+			print("File is not found")
+			sys.exit()	
 	"""
 	 	Method to open existing file with questions and possible responses,
 		and return the Object of this file.
 	"""
-	def parseFile(self):
-		with open("data.json", "r") as file:
+	def parseFile(self, filePath):
+		with open(filePath, "r") as file:
 			data = json.loads(file.read())
 		return data
 
