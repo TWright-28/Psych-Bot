@@ -1,6 +1,5 @@
 import sys
 from tkinter import *
-from tkinter.scrolledtext import ScrolledText
 from bot import Bot
 
 # Initialize Color & Font variables
