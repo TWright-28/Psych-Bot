@@ -50,7 +50,7 @@ class Bot:
 		return f"> Bot: Hello {self.name}.\nI am glad to have you here today, How are you feeling?\n\n"
 
 	"""
-		Return the user's name.
+		Return the user's name. If user's name is not defined, return
 	"""
 	def getUserName(self):
 		if len(self.name) == 0:
