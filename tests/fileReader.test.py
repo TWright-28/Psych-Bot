@@ -4,7 +4,7 @@ import sys
 import os
 
 """
-    Set the path to the src folder and import Bot class
+    Set the path to the src folder and import FileReader class
 """
 cur_path=os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, cur_path+"/..")
