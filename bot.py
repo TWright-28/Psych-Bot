@@ -35,8 +35,7 @@ class Bot:
 		return None
 
 	"""
-		Method asks user for their name, and sets the name to a class variable.
-		If the program receives an empty response, user will be prompted to enter the answer again.
+		Method sets the name to a class variable.
 		The response to the second question is saved to the node, which will be used in initializeChat method.
 	"""
 	def setUserName(self, name):
@@ -55,16 +54,14 @@ class Bot:
 	"""
 		TODO: Rewrite the purpose of the method.
 		This runs the main chat loop, exits when the next node is none.
-		If the user inputs keyword "quit," program will exit.
-		If the user inputs an empty input, program will prompt to enter correct response.
 	"""
 	def getResponse(self, answer):
 		nodeValue = self.current
 		
-		# while nodeValue != None:
 		if 'print' in nodeValue:
-			print(nodeValue['text'])
 			nodeValue = self.findNode(nodeValue['children'][0])
+			self.current = nodeValue
+			return nodeValue
 
 		if len(nodeValue['children']) == 1:
 			nodeValue = self.findNode(nodeValue['children'][0])
@@ -80,7 +77,9 @@ class Bot:
 						nodeValue = child
 				if nodeValue == child:
 					break
-		return nodeValue['text']
+
+		self.current = nodeValue
+		return nodeValue
 """
 	Runs the chat with the command 'python bot.py'.
 """

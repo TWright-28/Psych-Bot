@@ -105,28 +105,37 @@ class GUI:
     """
         Method where GUI class communicates with the Bot class to handle the proper conversation
     """
+   
     def addMessage(self, msg):
-        if len(msg) == 0:
+        # Validate if the message input is not empty
+        if len(msg.strip()) == 0:
             msg2 = f"> Bot: Sorry, what did you say?\n\n"
             self.renderMessage(msg2)
-        
+            return
+
         if self.bot.getUserName() == -1:
+            # Set the user name, and render the response
             msg1 = f"> Unknown User: {msg}\n\n"
             self.renderMessage(msg1)
             self.renderMessage(self.bot.setUserName(msg))
-            
         else:
+            # if no more nodes in dialogue, exit the program
+            try:
+                response = self.bot.getResponse(msg)['text']
+            except:
+                sys.exit()
+
+            # render bot's message
             msg1 = f"> {self.bot.getUserName()}: {msg}\n\n"
             self.renderMessage(msg1)
 
-            response = self.bot.getResponse(msg)
-
+            # if user printed quit, exit the program
             if response == -1:
                 sys.exit() 
             
+            # render user's message
             msg2 = f"> Bot: {response}\n\n"
             self.renderMessage(msg2)
-
 
         self.msg_entry.delete(0, END)
 
