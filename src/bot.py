@@ -1,16 +1,16 @@
 from nltk.stem.porter import PorterStemmer
 
-from fileReader import FileReader
+from src.fileReader import FileReader
 
 class Bot:
 	"""
 		Constructor to initialize constant class variables, and setup the responses.
 	"""
-	def __init__(self):
+	def __init__(self, pathFile):
 		self.name = ""
 		self.stemmer = PorterStemmer()
 		self.conditions = {}
-		self.initialize("data.json")
+		self.initialize(pathFile)
 
 	"""
 		Using the file reader to read in the data. using the stemmer class to check if the key matches the condition of the word.
@@ -42,9 +42,13 @@ class Bot:
 
 	"""
 		Method sets the name to a class variable.
+		If input of username is empty, return -1.
 		The response to the second question is saved to the node, which will be used in initializeChat method.
 	"""
 	def setUserName(self, name):
+		if len(name.strip()) == 0:
+			return -1
+		
 		self.name = name
 		self.current = self.nodes[0]
 		return f"> Bot: Hello {self.name}.\nI am glad to have you here today, How are you feeling?\n\n"
@@ -97,8 +101,3 @@ class Bot:
 
 		self.current = nodeValue
 		return nodeValue
-"""
-	Runs the chat with the command 'python bot.py'.
-"""
-if __name__ == '__main__':
-	Bot()
