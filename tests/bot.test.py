@@ -18,7 +18,8 @@ class Test(unittest.TestCase):
         sys.stdout = self.myStdOut     # and redirect stdout.
 
     """
-        Documentation goes here
+        Simple test to see if the file exists.
+        If it does not an error will be displayed 
     """
     def testNonExistingFile(self):
         with self.assertRaises(SystemExit) as ex:
@@ -26,7 +27,8 @@ class Test(unittest.TestCase):
             self.assertEqual(ex.exception, "Error")
 
     """
-        Documentation goes here
+        Testing to see if the bot has an empty constructor.
+        Returns an error if it is empty
     """
     def testEmptyBotConstructor(self):
         with self.assertRaises(TypeError) as ex:
@@ -34,13 +36,14 @@ class Test(unittest.TestCase):
             self.assertEqual(ex.exception, "Error")
 
     """
-        Documentation goes here
+        Testing if the user has entered an empty name 
     """
     def testEmptyUsername(self):
         self.assertEqual(Bot("data.json").getUserName(), -1)
 
     """
-        Documentation goes here
+        Testing that the username the user has entered is 
+        a non empty username and setting that to the newuser variable
     """
     def testNonEmptyUsername(self):
         bot = Bot("data.json")
@@ -48,7 +51,7 @@ class Test(unittest.TestCase):
         self.assertEqual(bot.getUserName(), "NewUser")
 
     """
-        Documentation goes here
+        Displays a message with the user's name when they enter a non empty string
     """
     def testNonEmptySetUsernameOutput(self):
         bot = Bot("data.json")
@@ -58,7 +61,8 @@ class Test(unittest.TestCase):
         self.assertEqual(bot.setUserName(username), f"> Bot: Hello {username}.\nI am glad to have you here today, How are you feeling?\n\n")
 
     """
-        Documentation goes here
+            Whenever the user enters  an empty argument, the username is 
+            set and an error is displayed 
     """
     def testEmptyArgumentSetUsernameOutput(self):
         bot = Bot("data.json")
@@ -67,7 +71,8 @@ class Test(unittest.TestCase):
             self.assertEqual(ex.exception, "Error")
 
     """
-        Documentation goes here
+        Tests if the user has entered a space instead of actual text
+        will return an error if there is only a space
     """
     def testSpaceInputSetUsernameOutput(self):
         bot = Bot("data.json")
@@ -75,7 +80,8 @@ class Test(unittest.TestCase):
         self.assertEqual(bot.setUserName(username), -1)
 
     """
-        Documentation goes here
+        Tests if the username is a single space and will return 
+        an error 
     """
     def testEmptyInputSetUsernameOutput(self):
         bot = Bot("data.json")
