@@ -62,7 +62,7 @@
       "id": "psychiatrichospitalyes",
       "children": ["suicidalthoughts"],
       "condition": "yes_words",
-      "text": "what was the reason you were in a psychiatric hospital?"
+      "text": "What was the reason you were in a psychiatric hospital?"
     },
     {
       "id": "suicidalthoughts",
