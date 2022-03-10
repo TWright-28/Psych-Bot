@@ -96,39 +96,35 @@ class Bot:
 				if 'default' in child:
 					nodeValue = child
 					break
-				for word in self.conditions[child['condition']]:
-					if word in answer_words:
-						nodeValue = child
-						break
-					if 'pos' in child:
-						tags = pos_tag(answer_words)
-						found = False
-						for pos in child['pos']:
-							if any(pos == tag[1] for tag in tags):
-								found = True
-								break
-						if not found:
-							continue	
-					if 'sentiment' in child:
-						ss = self.sid.polarity_scores(" ".join(answer_words))
-						for sentiment in child['sentiment']:
-							if ss[sentiment] > 0.5:
+				if 'pos' in child:
+					tags = pos_tag(answer_words)
+					found = False
+					for pos in child['pos']:
+						if any(pos == tag[1] for tag in tags):
+							found = True
+							break
+					if not found:
+						continue	
+				if 'sentiment' in child:
+					ss = self.sid.polarity_scores(" ".join(answer_words))
+					for sentiment in child['sentiment']:
+						if ss[sentiment] > 0.5:
+							nodeValue = child
+							break
+				elif 'condition' in child:
+					for word in self.conditions[child['condition']]:
+						for answer_word in answer_words:
+							synonyms = [answer_word]
+							for syn in wordnet.synsets(answer_word):
+								for l in syn.lemmas():
+									synonyms.append(l.name())
+							if word in synonyms:
 								nodeValue = child
 								break
-					elif 'condition' in child:
-						for word in self.conditions[child['condition']]:
-							for answer_word in answer_words:
-								synonyms = [answer_word]
-								for syn in wordnet.synsets(answer_word):
-									for l in syn.lemmas():
-										synonyms.append(l.name())
-								if word in synonyms:
-									nodeValue = child
-									break
-					else:
-						nodeValue = child 
-					if nodeValue == child:
-						break
+				else:
+					nodeValue = child 
+				if nodeValue == child:
+					break
 
 		self.current = nodeValue
 		return nodeValue
