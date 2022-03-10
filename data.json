@@ -1,24 +1,29 @@
 {
   "conditions": {
-		"yes_words": ["yes", "ya", "yea", "yeah", "i do", "ok", "okay", "y", "Yes I do", "Yes, I do"], 
-		"no_words": ["no", "nope", "nah", "na", "dont", "do not", "n", "I don't", "I do not", "No, I don't", "No, I do not", "No, I donot", "No I donot", "No I don't"], 
-		"family_words": ["family"], 
-		"friends_words": ["friend"],
-    "bad_words": ["bad", "crappy", "shitty", "not good"],
-    "good_words": ["good", "great", "awesome"]
-	},
+    "yes_words": ["yes", "ya", "yea", "yeah", "i do", "ok", "okay", "y"],
+    "no_words": ["no", "nope", "nah", "na", "dont", "not", "n", "don't"],
+    "family_words": ["family", "mother", "father", "brother", "sister", "cousin", "uncle"],
+    "friends_words": ["friend"],
+    "therapy_words": ["depression", "anxiety", "suicide"]
+  },
   "nodes": [
+    {
+      "id": "first",
+      "children": ["feelingGood", "howlongfeel"],
+      "text": "I am glad to have you here today, How are you feeling?"
+    },
     {
       "id": "howlongfeel",
       "children": ["prescribedmeds"],
-      "condition": "bad_words",
+      "sentiment": ["neg", "neu"],
       "text": "How long have you been feeling like this?",
       "default": true
     },
     {
       "id": "feelingGood",
-      "children": ["howlongfeel"],
-      "condition": "good_words",
+      "children": ["prescribedmeds"],
+      "sentiment": ["pos"],
+      "print": true,
       "text": "Thats good to hear!"
     },
     {
@@ -50,7 +55,7 @@
     },
     {
       "id": "psychiatrichospital",
-      "children": ["psychiatrichospitalyes","suicidalthoughts"],
+      "children": ["psychiatrichospitalyes", "suicidalthoughts"],
       "text": "Have you ever been placed in a psychiatric hospital?"
     },
     {
@@ -85,7 +90,7 @@
     },
     {
       "id": "chargedwithcrime",
-      "children": ["chargedwithcrimeyes","chargedwithcrimeno"],
+      "children": ["chargedwithcrimeyes", "chargedwithcrimeno"],
       "text": "Have you ever been arrested or charged with a crime before?"
     },
     {
@@ -171,7 +176,7 @@
       "text": "When did you last work?",
       "default": true
     },
-  
+
     {
       "id": "leavingwork",
       "children": ["payingbills"],
@@ -238,7 +243,7 @@
     },
     {
       "id": "videogames",
-      "children": ["favouritegameyes","favouritegameno"],
+      "children": ["favouritegameyes", "favouritegameno"],
       "text": "Do you play any games or video games in your free time?"
     },
     {
@@ -267,7 +272,8 @@
     {
       "id": "whynogames",
       "children": ["wrapup"],
-      "text": "Video games are a great way to relieve stress and are available almost always so you should try to find a game that you may enjoy. It can really help brighten ones mood!"
+      "text": "Video games are a great way to relieve stress and are available almost always so you should try to find a game that you may enjoy. It can really help brighten ones mood!",
+      "print": true
     },
     {
       "id": "wrapup",
@@ -276,23 +282,30 @@
     },
     {
       "id": "otherquestions",
-      "children": ["otherquestionsrequest", "seeyou"],
+      "children": ["otherquestionsrequest", "test2", "seeyou"],
       "text": "Do you have any other questions?"
     },
-		{
-			"id": "otherquestionsrequest",
-			"children": [null],
-			"condition": "yes_words",
-			"text": "Hmmm, It seems like we are running out of scheduled time. I would recommend you to call our hotline. Other than that, have a good day! Don't forget about your homework.",
-			"print": true
-		},
+    {
+      "id": "otherquestionsrequest",
+      "children": [null],
+      "pos": ["VB", "WP", "WRB", "WDT"],
+      "condition": "therapy_words",
+      "text": "Hmmm, It seems like we are running out of scheduled time. I would recommend you to call our hotline. Other than that, have a good day! Don't forget about your homework.",
+      "print": true
+    },
+    {
+      "id": "test2",
+      "children": [null],
+      "pos": ["VB", "WP", "WRB", "WDT"],
+      "text": "I don't think I can help you with that, have a good day!",
+      "print": true
+    },
     {
       "id": "seeyou",
       "children": [null],
-			"condition": "no_words",
+      "default": true,
       "text": "Great, hope to see you next week!",
-			"print": true
+      "print": true
     }
   ]
 }
-
