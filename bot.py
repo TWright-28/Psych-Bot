@@ -1,6 +1,10 @@
 from nltk.stem.porter import PorterStemmer
-
+import nltk 
+nltk.download('wordnet')
+from nltk.corpus import wordnet
 from fileReader import FileReader
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from nltk import pos_tag
 
 class Bot:
 	"""
@@ -11,6 +15,8 @@ class Bot:
 		self.stemmer = PorterStemmer()
 		self.conditions = {}
 		self.initialize("data.json")
+		self.sid = SentimentIntensityAnalyzer()
+
 
 	"""
 		Using the file reader to read in the data. using the stemmer class to check if the key matches the condition of the word.
@@ -64,6 +70,7 @@ class Bot:
 		On the other hand, if the node doesn't have subnodes, it will proceed to the next node based on the user's response.
 		Method also validates if username was provided, and if user asked to quit the program.
 		The method return object of node.
+
 	"""
 	def getResponse(self, answer):
 		
@@ -92,8 +99,36 @@ class Bot:
 				for word in self.conditions[child['condition']]:
 					if word in answer_words:
 						nodeValue = child
-				if nodeValue == child:
-					break
+						break
+					if 'pos' in child:
+						tags = pos_tag(answer_words)
+						found = False
+						for pos in child['pos']:
+							if any(pos == tag[1] for tag in tags):
+								found = True
+								break
+						if not found:
+							continue	
+					if 'sentiment' in child:
+						ss = self.sid.polarity_scores(" ".join(answer_words))
+						for sentiment in child['sentiment']:
+							if ss[sentiment] > 0.5:
+								nodeValue = child
+								break
+					elif 'condition' in child:
+						for word in self.conditions[child['condition']]:
+							for answer_word in answer_words:
+								synonyms = [answer_word]
+								for syn in wordnet.synsets(answer_word):
+									for l in syn.lemmas():
+										synonyms.append(l.name())
+								if word in synonyms:
+									nodeValue = child
+									break
+					else:
+						nodeValue = child 
+					if nodeValue == child:
+						break
 
 		self.current = nodeValue
 		return nodeValue
