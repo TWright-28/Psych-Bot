@@ -90,8 +90,8 @@ https://drive.google.com/file/d/1d1YoKrsMo2QLvyRmTXqykamdag-MjdqK/view
 
 ## Contributors
 
-- [@d3li0n](https://github.com/d3li0n) - Documentation and Project Manager.
-- [@KentonMewling](https://github.com/KentonMewling) - Dictionary for chatbot responses.
-- [@RyanG418](https://github.com/RyanG418) - Dictionary for chatbot responses.
-- [@vinui409](https://github.com/vinui409) - Core Development.
+- [@d3li0n](https://github.com/d3li0n) - GUI, Automated Unit Testing.
+- [@KentonMewling](https://github.com/KentonMewling) - Automated Unit Testing.
+- [@RyanG418](https://github.com/RyanG418) - Documentation.
+- [@vinui409](https://github.com/vinui409) - Documentation.
 - [@OKThomas1](https://github.com/OKThomas1) - Core Development. 
