@@ -18,21 +18,21 @@ class Test(unittest.TestCase):
         sys.stdout = self.myStdOut     # and redirect stdout.
 
     """
-        Documentation goes here
+        Testing if the data does exist and then reading the data
     """
     def testExistingData(self):
         fileReader = FileReader("data.json")
         self.assertEqual(len(fileReader.getFileContent()), 2)
 
     """
-        Documentation goes here
+        Testing each of the conditions from the data.json file and getting the content of the conditions
     """
     def testExistingDataConditions(self):
         fileReader = FileReader("data.json")
         self.assertEqual(len(fileReader.getFileContent()['conditions']), 6)
 
     """
-        Documentation goes here
+        Testing the existing data nodes from data.json file
     """
     def testExistingDataNodes(self):
         fileReader = FileReader("data.json")
