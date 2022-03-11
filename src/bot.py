@@ -106,31 +106,27 @@ class Bot:
 			answer_words = [self.stemmer.stem(word) for word in answer.lower().split(" ")]
 			for child in nodeValue['children']:
 				child = self.findNode(child)
+				
 				if 'default' in child:
 					nodeValue = child
 					break
+				
 				if 'pos' in child:
-					tags = pos_tag(answer_words)
-					found = False
-					for pos in child['pos']:
-						if any(pos == tag[1] for tag in tags):
-							found = True
-							break
+					found = len(self.getPosTag(child, answer_words)) > 0	
 					if not found:
-						continue	
+						continue
+
 				if 'sentiment' in child:
-					ss = self.sid.polarity_scores(" ".join(answer_words))
+					p_scores = self.getSentimentPolarityScore(answer_words)
 					for sentiment in child['sentiment']:
-						if ss[sentiment] > 0.5:
+						if p_scores[sentiment] > 0.5:
 							nodeValue = child
 							break
 				elif 'condition' in child:
 					for word in self.conditions[child['condition']]:
 						for answer_word in answer_words:
 							synonyms = [answer_word]
-							for syn in wordnet.synsets(answer_word):
-								for l in syn.lemmas():
-									synonyms.append(l.name())
+							synonyms = self.getWordNetSynsetResult(answer_word)
 							if word in synonyms:
 								nodeValue = child
 								break
@@ -144,13 +140,28 @@ class Bot:
 
 	"""
 		@api
+		Returns the list of predicted POS from the sentense the user has provided to the bot. 
+	"""
+	def getPosTag(self, child, response):
+		tags = pos_tag(response)
+
+		pos_tags = []
+		for pos in child['pos']:
+			if any(pos == tag[1] for tag in tags):
+				pos_tags.append(pos)
+		
+		return pos_tags
+	
+
+	"""
+		@api
 		Returns synonyms from the wordnet list based on the input provided by the user.
 	"""
 	def getWordNetSynsetResult(self, response):
 		if len(response.strip()) == 0:
 			return -1
 
-		synonyms = []
+		synonyms = [response]
 		for syn in wordnet.synsets(response):
 			for l in syn.lemmas():
 				synonyms.append(l.name())
@@ -161,8 +172,8 @@ class Bot:
 		Returns the sentimental analysis of the user's input. Determines if the response is positive, negative or neutral
 	"""
 	def getSentimentPolarityScore(self, response):
-		if len(response.strip()) == 0:
+		if len(response) == 0:
 			return -1
 
-		ss = self.sid.polarity_scores(response)
-		return ss['compound']
+		p_scores = self.sid.polarity_scores(" ".join(response))
+		return p_scores
