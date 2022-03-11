@@ -282,7 +282,7 @@
     },
     {
       "id": "otherquestions",
-      "children": ["otherquestionsrequest", "test2", "seeyou"],
+      "children": ["otherquestionsrequest", "hardquestion", "seeyou"],
       "text": "Do you have any other questions?"
     },
     {
@@ -290,14 +290,14 @@
       "children": [null],
       "pos": ["VB", "WP", "WRB", "WDT"],
       "condition": "therapy_words",
-      "text": "Hmmm, It seems like we are running out of scheduled time. I would recommend you to call our hotline. Other than that, have a good day! Don't forget about your homework.",
+      "text": "Hmmm, It seems like we are running out of scheduled time. I would recommend you to call our hotline.",
       "print": true
     },
     {
-      "id": "test2",
+      "id": "hardquestion",
       "children": [null],
       "pos": ["VB", "WP", "WRB", "WDT"],
-      "text": "I don't think I can help you with that, have a good day!",
+      "text": "I would recommend you to call our hotline as it's hard to do it here.",
       "print": true
     },
     {
