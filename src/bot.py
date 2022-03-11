@@ -1,10 +1,19 @@
 from nltk.stem.porter import PorterStemmer
 import nltk 
 nltk.download('wordnet')
+nltk.download('vader_lexicon')
+nltk.download('omw-1.4')
+nltk.download('averaged_perceptron_tagger')
 from nltk.corpus import wordnet
-from fileReader import FileReader
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import pos_tag
+
+import os
+import sys
+
+cur_path=os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, cur_path+"/..")
+from src.fileReader import FileReader
 
 class Bot:
 	"""
@@ -72,9 +81,9 @@ class Bot:
 		If main node has subnodes(e.g., the user answered yes to the question instead of), method will look for the child nodes to find 
 		correct answer.
 		On the other hand, if the node doesn't have subnodes, it will proceed to the next node based on the user's response.
+		Method also uses nltk and portstemmer libraries to detect the part of speech, synonym recognition, and sentiment analysis.
 		Method also validates if username was provided, and if user asked to quit the program.
 		The method return object of node.
-
 	"""
 	def getResponse(self, answer):
 		
@@ -132,3 +141,28 @@ class Bot:
 
 		self.current = nodeValue
 		return nodeValue
+
+	"""
+		@api
+		Returns synonyms from the wordnet list based on the input provided by the user.
+	"""
+	def getWordNetSynsetResult(self, response):
+		if len(response.strip()) == 0:
+			return -1
+
+		synonyms = []
+		for syn in wordnet.synsets(response):
+			for l in syn.lemmas():
+				synonyms.append(l.name())
+		return synonyms
+
+	"""
+		@api
+		Returns the sentimental analysis of the user's input. Determines if the response is positive, negative or neutral
+	"""
+	def getSentimentPolarityScore(self, response):
+		if len(response.strip()) == 0:
+			return -1
+
+		ss = self.sid.polarity_scores(response)
+		return ss['compound']
