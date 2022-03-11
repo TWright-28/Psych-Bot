@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ```  
 **Step 6:** Start the program by running this command:
 ```bash
-python bot.py
+python app.py
 ```
 &nbsp; 
 
@@ -49,7 +49,7 @@ pip install -r requirements.txt
 ```  
 **Step 4:** Start the program by running this command:
 ```bash
-python3 bot.py
+python3 app.py
 ```
 &nbsp; 
 
