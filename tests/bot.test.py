@@ -82,6 +82,65 @@ class Test(unittest.TestCase):
         bot = Bot("data.json")
         self.assertEqual(bot.setUserName(""), -1)
 
+    """
+        Documentation goes here
+
+        the output of method is negative 0, which means that negative response // side comment
+    """
+    def testGetSentimentPolarityScoreOfNegativeResponse(self):
+        bot = Bot("data.json")
+        self.assertNotEqual(bot.getSentimentPolarityScore(["tired", "sick", "anxiety"]), 1)
+
+    """
+        Documentation goes here
+    """
+    def testGetSentimentPolarityScoreOfPositiveResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual((bot.getSentimentPolarityScore(["lovely", "good", "well"])).get('pos'), 1)
+
+    """
+        Documentation goes here
+    """
+    def testGetSentimentPolarityScoreOfNeutralResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual((bot.getSentimentPolarityScore(["disinterested", "inactive"])).get('neu'), 1)
+
+    """
+        Documentation goes here
+    """
+    def testGetSentimentPolarityScoreOfMixedResponse(self):
+        bot = Bot("data.json")
+        self.assertNotEqual((bot.getSentimentPolarityScore(["disinterested", "good", "sick"])).get('compound'), 1)
+
+    """
+        Documentation goes here
+    """
+    def testGetWordNetSynsetResultWithNonEmptyResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual(bot.getWordNetSynsetResult("exhausted")[1], "exhaust")
+
+    """
+        Documentation goes here
+    """
+    def testGetWordNetSynsetResultWithEmptyResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual(bot.getWordNetSynsetResult(""), -1)
+
+    """
+        Documentation goes here
+    """
+    def testGetPosTagWithQuestionResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual(bot.getPosTag({ 'pos': ['VB', 'WP', 'WRB', 'WDT'] }, ["what", "should", "i", "do", "?"]), ['VB', 'WP'])
+
+    """
+        Documentation goes here
+    """
+    def testGetPosTagWithModalResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual(bot.getPosTag({ 'pos': ['VB', 'WP', 'WRB', 'MD'] }, ["could", "you", "help", "me", "?"]), ['VB', 'MD'])
+
+
     def tearDown(self):
         sys.stdout = sys.__stdout__   
         sys.stdin = sys.__stdin__
