@@ -29,14 +29,14 @@ class Test(unittest.TestCase):
     """
     def testExistingDataConditions(self):
         fileReader = FileReader("data.json")
-        self.assertEqual(len(fileReader.getFileContent()['conditions']), 6)
+        self.assertEqual(len(fileReader.getFileContent()['conditions']), 5)
 
     """
         Testing the existing data nodes from data.json file
     """
     def testExistingDataNodes(self):
         fileReader = FileReader("data.json")
-        self.assertEqual(len(fileReader.getFileContent()['nodes']), 48)
+        self.assertEqual(len(fileReader.getFileContent()['nodes']), 50)
 
 
     def tearDown(self):
