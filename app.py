@@ -1,6 +1,6 @@
 import sys
 from tkinter import *
-from bot import Bot
+from src.bot import Bot
 
 # Initialize Color & Font variables
 BG_GRAY = "#ABB2B9"
@@ -89,7 +89,7 @@ class GUI:
         Initialize the Bot class and constructor, prompt the user to enter their name
     """
     def initializeBot(self):
-        self.bot = Bot()
+        self.bot = Bot("data.json")
         msg2 = f"\n> Bot: Hello, I am Psych-Bot. What is your name?\n\n"
         self.renderMessage(msg2)
 

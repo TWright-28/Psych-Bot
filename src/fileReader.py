@@ -9,7 +9,7 @@ class FileReader:
 			self.fileContent = self.parseFile(filePath)
 		except:
 			print("File is not found")
-			sys.exit()	
+			sys.exit(1)	
 	"""
 	 	Method to open existing file with questions and possible responses,
 		and return the Object of this file.
