@@ -91,8 +91,8 @@ class Test(unittest.TestCase):
         self.assertNotEqual(bot.getSentimentPolarityScore(["tired", "sick", "anxiety"]), 1)
 
     """
-        Test case which tests a sentient polarity score of negative user responses which checks using the sentimentPolarityScore. If it is it will return a 1
-        and then it will be checked using the assertEqual method if they match
+        Test case which tests a sentient polarity score of negative user responses which checks using the sentimentPolarityScore. If it is then we ensure that a 1 will not be returned
+        and then it will be checked using the assertEqual method 
 
     """
     def testGetSentimentPolarityScoreOfPositiveResponse(self):
@@ -116,7 +116,7 @@ class Test(unittest.TestCase):
         self.assertNotEqual((bot.getSentimentPolarityScore(["disinterested", "good", "sick"])).get('compound'), 1)
 
     """
-        Test case for getting the results from NetSynset with a non empty result
+        Test case for ensuring that the method willr eturn a list of values such that the element at index 1 matches our output
     """
     def testGetWordNetSynsetResultWithNonEmptyResponse(self):
         bot = Bot("data.json")
@@ -130,14 +130,14 @@ class Test(unittest.TestCase):
         self.assertEqual(bot.getWordNetSynsetResult(""), -1)
 
     """
-       Test case for getting hte PosTag with a question response
+       Test case for getting the PosTag with a question response
     """
     def testGetPosTagWithQuestionResponse(self):
         bot = Bot("data.json")
         self.assertEqual(bot.getPosTag({ 'pos': ['VB', 'WP', 'WRB', 'WDT'] }, ["what", "should", "i", "do", "?"]), ['VB', 'WP'])
 
     """
-       Test case for getting hte PosTag with a modal response
+       Test case for getting the PosTag with a modal response
     """
     def testGetPosTagWithModalResponse(self):
         bot = Bot("data.json")
