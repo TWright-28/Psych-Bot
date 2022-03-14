@@ -83,58 +83,61 @@ class Test(unittest.TestCase):
         self.assertEqual(bot.setUserName(""), -1)
 
     """
-        Documentation goes here
-
-        the output of method is negative 0, which means that negative response // side comment
+        Test case which tests a sentient polarity score of positive user responses which checks using the sentimentPolarityScore. If it is it will return a 1
+        and then it will be checked using the assertEqual method if they do not match
     """
     def testGetSentimentPolarityScoreOfNegativeResponse(self):
         bot = Bot("data.json")
         self.assertNotEqual(bot.getSentimentPolarityScore(["tired", "sick", "anxiety"]), 1)
 
     """
-        Documentation goes here
+        Test case which tests a sentient polarity score of negative user responses which checks using the sentimentPolarityScore. If it is it will return a 1
+        and then it will be checked using the assertEqual method if they match
+
     """
     def testGetSentimentPolarityScoreOfPositiveResponse(self):
         bot = Bot("data.json")
         self.assertEqual((bot.getSentimentPolarityScore(["lovely", "good", "well"])).get('pos'), 1)
 
     """
-        Documentation goes here
+        Test case which tests a sentient polarity score of neutral user responces which checks using the sentimentPolarityScore. If it is it will return a 1
+        and then it will be checked using the assertEqual method if they match
     """
     def testGetSentimentPolarityScoreOfNeutralResponse(self):
         bot = Bot("data.json")
         self.assertEqual((bot.getSentimentPolarityScore(["disinterested", "inactive"])).get('neu'), 1)
 
     """
-        Documentation goes here
+         Test case which tests a sentient polarity score of mixew user responces which checks using the sentimentPolarityScore. If it is it will return a 1
+        and then it will be checked using the assertEqual method if they  do not match
     """
     def testGetSentimentPolarityScoreOfMixedResponse(self):
         bot = Bot("data.json")
         self.assertNotEqual((bot.getSentimentPolarityScore(["disinterested", "good", "sick"])).get('compound'), 1)
 
     """
-        Documentation goes here
+        Test case for getting the results from NetSynset with a non empty result
     """
     def testGetWordNetSynsetResultWithNonEmptyResponse(self):
         bot = Bot("data.json")
         self.assertEqual(bot.getWordNetSynsetResult("exhausted")[1], "exhaust")
 
     """
-        Documentation goes here
+        Test Case for getting the results from NetSynset with an empty response. If so expect a result of -1
     """
     def testGetWordNetSynsetResultWithEmptyResponse(self):
         bot = Bot("data.json")
         self.assertEqual(bot.getWordNetSynsetResult(""), -1)
 
     """
-        Documentation goes here
+       Test case for getting hte PosTag with a question response
     """
     def testGetPosTagWithQuestionResponse(self):
         bot = Bot("data.json")
         self.assertEqual(bot.getPosTag({ 'pos': ['VB', 'WP', 'WRB', 'WDT'] }, ["what", "should", "i", "do", "?"]), ['VB', 'WP'])
 
     """
-        Documentation goes here
+       Test case for getting hte PosTag with a modal response
     """
     def testGetPosTagWithModalResponse(self):
         bot = Bot("data.json")
