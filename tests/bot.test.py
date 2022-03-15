@@ -18,7 +18,7 @@ class Test(unittest.TestCase):
         sys.stdout = self.myStdOut     # and redirect stdout.
 
     """
-        Documentation goes here
+       Test case assures that if the file does not exist than the expected error is catched and handled.
     """
     def testNonExistingFile(self):
         with self.assertRaises(SystemExit) as ex:
@@ -26,7 +26,7 @@ class Test(unittest.TestCase):
             self.assertEqual(ex.exception, "Error")
 
     """
-        Documentation goes here
+        Testing to see if the bot has an empty constructor if so an error is to be expected.
     """
     def testEmptyBotConstructor(self):
         with self.assertRaises(TypeError) as ex:
@@ -34,13 +34,13 @@ class Test(unittest.TestCase):
             self.assertEqual(ex.exception, "Error")
 
     """
-        Documentation goes here
+        Tests if the user has entered an empty username, if so a -1 should be expected.
     """
     def testEmptyUsername(self):
         self.assertEqual(Bot("data.json").getUserName(), -1)
 
     """
-        Documentation goes here
+        testing that the user has entered a non-empty username and setting that name to the NewUser variable
     """
     def testNonEmptyUsername(self):
         bot = Bot("data.json")
@@ -48,7 +48,7 @@ class Test(unittest.TestCase):
         self.assertEqual(bot.getUserName(), "NewUser")
 
     """
-        Documentation goes here
+        Displays a message with the user's name when they enter a non-empty string
     """
     def testNonEmptySetUsernameOutput(self):
         bot = Bot("data.json")
@@ -58,7 +58,7 @@ class Test(unittest.TestCase):
         self.assertEqual(bot.setUserName(username), f"> Bot: Hello {username}.\nI am glad to have you here today, How are you feeling?\n\n")
 
     """
-        Documentation goes here
+        Testing if the user has entered an empty argument, If so an error is to be expected.
     """
     def testEmptyArgumentSetUsernameOutput(self):
         bot = Bot("data.json")
@@ -67,7 +67,7 @@ class Test(unittest.TestCase):
             self.assertEqual(ex.exception, "Error")
 
     """
-        Documentation goes here
+        Test Case asserts that if the user provides only spaces than a -1 should be expected
     """
     def testSpaceInputSetUsernameOutput(self):
         bot = Bot("data.json")
@@ -75,15 +75,80 @@ class Test(unittest.TestCase):
         self.assertEqual(bot.setUserName(username), -1)
 
     """
-        Documentation goes here
+       Test Case asserts that if the user provides an empty input than a -1 should be expected
     """
     def testEmptyInputSetUsernameOutput(self):
         bot = Bot("data.json")
         self.assertEqual(bot.setUserName(""), -1)
 
+    """
+        Test case which tests a sentient polarity score of positive user responses which checks using the sentimentPolarityScore. If it is it will return a 1
+        and then it will be checked using the assertEqual method if they do not match
+    """
+    def testGetSentimentPolarityScoreOfNegativeResponse(self):
+        bot = Bot("data.json")
+        self.assertNotEqual(bot.getSentimentPolarityScore(["tired", "sick", "anxiety"]), 1)
+
+    """
+        Test case which tests a sentient polarity score of negative user responses which checks using the sentimentPolarityScore. If it is then we ensure that a 1 will not be returned
+        and then it will be checked using the assertEqual method 
+
+    """
+    def testGetSentimentPolarityScoreOfPositiveResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual((bot.getSentimentPolarityScore(["lovely", "good", "well"])).get('pos'), 1)
+
+    """
+        Test case which tests a sentient polarity score of neutral user responces which checks using the sentimentPolarityScore. If it is it will return a 1
+        and then it will be checked using the assertEqual method if they match
+    """
+    def testGetSentimentPolarityScoreOfNeutralResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual((bot.getSentimentPolarityScore(["disinterested", "inactive"])).get('neu'), 1)
+
+    """
+        Test case which tests a sentient polarity score of mixew user responces which checks using the sentimentPolarityScore. If it is it will return a 1
+        and then it will be checked using the assertNotEqual method if they do not match
+    """
+    def testGetSentimentPolarityScoreOfMixedResponse(self):
+        bot = Bot("data.json")
+        self.assertNotEqual((bot.getSentimentPolarityScore(["disinterested", "good", "sick"])).get('compound'), 1)
+
+    """
+        Test case for ensuring that the method will return a list of values such that the element at index 1 matches our output
+    """
+    def testGetWordNetSynsetResultWithNonEmptyResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual(bot.getWordNetSynsetResult("exhausted")[1], "exhaust")
+
+    """
+        Test Case for getting the results from NetSynset with an empty response. If so expect a result of -1
+    """
+    def testGetWordNetSynsetResultWithEmptyResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual(bot.getWordNetSynsetResult(""), -1)
+
+    """
+       Test case for getting the PosTag with a question response
+    """
+    def testGetPosTagWithQuestionResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual(bot.getPosTag({ 'pos': ['VB', 'WP', 'WRB', 'WDT'] }, ["what", "should", "i", "do", "?"]), ['VB', 'WP'])
+
+    """
+       Test case for getting the PosTag with a modal response
+    """
+    def testGetPosTagWithModalResponse(self):
+        bot = Bot("data.json")
+        self.assertEqual(bot.getPosTag({ 'pos': ['VB', 'WP', 'WRB', 'MD'] }, ["could", "you", "help", "me", "?"]), ['VB', 'MD'])
+
+    """
+        Method to close the input and output stream
+    """
     def tearDown(self):
         sys.stdout = sys.__stdout__   
         sys.stdin = sys.__stdin__
 
+# Call the test class
 if __name__ == '__main__':
     unittest.main()

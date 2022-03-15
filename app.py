@@ -104,7 +104,6 @@ class GUI:
     """
         Method where GUI class communicates with the Bot class to handle the proper conversation
     """
-   
     def addMessage(self, msg):
         # Validate if the message input is not empty
         if len(msg.strip()) == 0:
@@ -112,6 +111,7 @@ class GUI:
             self.renderMessage(msg2)
             return
 
+        # Check if username is set in the bot class
         if self.bot.getUserName() == -1:
             # Set the user name, and render the response
             msg1 = f"> Unknown User: {msg}\n\n"
@@ -124,11 +124,11 @@ class GUI:
             except:
                 sys.exit()
 
-            # render bot's message
+            # renders user's message
             msg1 = f"> {self.bot.getUserName()}: {msg}\n\n"
             self.renderMessage(msg1)
 
-            # render user's message
+            # renders bot's message
             msg2 = f"> Bot: {response}\n\n"
             self.renderMessage(msg2)
 

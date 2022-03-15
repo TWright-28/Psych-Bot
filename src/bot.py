@@ -104,6 +104,7 @@ class Bot:
 			nodeValue = self.findNode(nodeValue['children'][0])
 		else:
 			answer_words = [self.stemmer.stem(word) for word in answer.lower().split(" ")]
+			print(answer_words)
 			for child in nodeValue['children']:
 				child = self.findNode(child)
 				
@@ -144,12 +145,10 @@ class Bot:
 	"""
 	def getPosTag(self, child, response):
 		tags = pos_tag(response)
-
 		pos_tags = []
 		for pos in child['pos']:
 			if any(pos == tag[1] for tag in tags):
 				pos_tags.append(pos)
-		
 		return pos_tags
 	
 
