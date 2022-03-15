@@ -18,7 +18,7 @@ class Test(unittest.TestCase):
         sys.stdout = self.myStdOut     # and redirect stdout.
 
     """
-       Test case assures that if the file does not exisit than the expected error is catched and handled.
+       Test case assures that if the file does not exist than the expected error is catched and handled.
     """
     def testNonExistingFile(self):
         with self.assertRaises(SystemExit) as ex:
@@ -35,7 +35,6 @@ class Test(unittest.TestCase):
 
     """
         Tests if the user has entered an empty username, if so a -1 should be expected.
-    
     """
     def testEmptyUsername(self):
         self.assertEqual(Bot("data.json").getUserName(), -1)
@@ -108,15 +107,15 @@ class Test(unittest.TestCase):
         self.assertEqual((bot.getSentimentPolarityScore(["disinterested", "inactive"])).get('neu'), 1)
 
     """
-         Test case which tests a sentient polarity score of mixew user responces which checks using the sentimentPolarityScore. If it is it will return a 1
-        and then it will be checked using the assertEqual method if they  do not match
+        Test case which tests a sentient polarity score of mixew user responces which checks using the sentimentPolarityScore. If it is it will return a 1
+        and then it will be checked using the assertNotEqual method if they do not match
     """
     def testGetSentimentPolarityScoreOfMixedResponse(self):
         bot = Bot("data.json")
         self.assertNotEqual((bot.getSentimentPolarityScore(["disinterested", "good", "sick"])).get('compound'), 1)
 
     """
-        Test case for ensuring that the method willr eturn a list of values such that the element at index 1 matches our output
+        Test case for ensuring that the method will return a list of values such that the element at index 1 matches our output
     """
     def testGetWordNetSynsetResultWithNonEmptyResponse(self):
         bot = Bot("data.json")
@@ -143,10 +142,13 @@ class Test(unittest.TestCase):
         bot = Bot("data.json")
         self.assertEqual(bot.getPosTag({ 'pos': ['VB', 'WP', 'WRB', 'MD'] }, ["could", "you", "help", "me", "?"]), ['VB', 'MD'])
 
-
+    """
+        Method to close the input and output stream
+    """
     def tearDown(self):
         sys.stdout = sys.__stdout__   
         sys.stdin = sys.__stdin__
 
+# Call the test class
 if __name__ == '__main__':
     unittest.main()

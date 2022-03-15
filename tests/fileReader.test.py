@@ -18,14 +18,14 @@ class Test(unittest.TestCase):
         sys.stdout = self.myStdOut     # and redirect stdout.
 
     """
-        Testing if the data does exist and then reading the data
+        Testing if the data does exist and has certain amount of objects in the file
     """
     def testExistingData(self):
         fileReader = FileReader("data.json")
         self.assertEqual(len(fileReader.getFileContent()), 2)
 
     """
-        Testing each of the conditions from the data.json file and getting the content of the conditions
+        Testing each of the conditions from the data.json file that has certain amount of the content in the conditions
     """
     def testExistingDataConditions(self):
         fileReader = FileReader("data.json")
@@ -38,10 +38,13 @@ class Test(unittest.TestCase):
         fileReader = FileReader("data.json")
         self.assertEqual(len(fileReader.getFileContent()['nodes']), 50)
 
-
+    """
+        Method to close the input and output stream
+    """
     def tearDown(self):
         sys.stdout = sys.__stdout__   
         sys.stdin = sys.__stdin__
 
+# Call the test class
 if __name__ == '__main__':
     unittest.main()
