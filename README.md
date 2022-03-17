@@ -95,13 +95,13 @@ The project was created for the UBC Okanagan third year level course.
  
  ### POS Tagging ###
  
- **Replying with a question or a therapy word (anxiety / depression / suicide) 
+ **>Replying with a question or a therapy word (anxiety / depression / suicide) 
    Results in no more scheduled time**
    
- **Replying with just a question 
+ **>Replying with just a question 
    Results in the system not being able to help**
    
- **Replying with anything else 
+ **>Replying with anything else 
    Results in the system concluding the session**
  
  <table>
@@ -119,17 +119,16 @@ The project was created for the UBC Okanagan third year level course.
  
  ### Sentiment Analysis ###
  
- **The system decides if the response is either Positive or Negative**
+ **>The system decides if the response is either Positive or Negative**
  
  <table>
   <tr>
-    <td>Positive</td>
     <td>Negative</td>
+    <td>Positive</td>
   </tr>
   <tr>
-    <td><img src="./docs/images/1.PNG" width="300" height="500"></td>
-    <td><img src="./docs/images/POS2.PNG" width="300" height="500"></td>
-    <td><img src="./docs/images/POS3.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/SA1.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/SA2.PNG" width="300" height="500"></td>
   </tr>
  </table>
  
