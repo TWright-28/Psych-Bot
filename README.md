@@ -8,6 +8,7 @@
 - [Features by Branch](#features-by-branch)
 - [Dialogue](#dialogue)
 - [Assignment 3 New Features](#assignment-3-new-features)
+- [Data Flow Diagrams](#data-flow-diagrams)
 - [Project Demo](#project-demo)
 - [Contributors](#contributors)
 - [Presentation](#presentation)
@@ -170,10 +171,20 @@ python3 tests/fileReader.test.py
   </tr>
  </table>
  
+ ## Data Flow Diagrams ##
  
+ ### Data Flow Diagram level 0 ###
+
+This is a level 0 data flow diagram. It shows the abstract relationships between the user, our graphical user inferface and the bot interact. 
+
+<img src="./docs/images/DFD0.png" width="1000">
  
- 
- 
+ ### Data Flow Diagram level 1 ###
+
+
+This is a level 1 data flow diagram. It shows a more specific relationship between the user, our graphical user inferface and the bot. This includes the process in which the bot recieves data from the GUI, processes that data through the Porterstemmer as well as many language toolkits to improve the response.
+
+<img src="./docs/images/DFD1.png" width="1000">
 
 ## Project Demo 
 
