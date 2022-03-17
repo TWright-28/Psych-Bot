@@ -68,7 +68,7 @@ The project was created for the UBC Okanagan third year level course.
 - [Gantt Chart](https://github.com/KentonMewling/Psych-Bot/blob/main/docs/Gantt%20Chart.png)
 - [Network Graph/Branch & Commits](https://github.com/KentonMewling/Psych-Bot/network)
 
-## Developed Features
+## Features by Branch
 ![Showing different features developed](./docs/NETWORK.png)
 ## Project Demo 
 
