@@ -108,7 +108,11 @@ python3 tests/fileReader.test.py
 
 <img src="./docs/convo.gif" width="500" height="750">
 
-## Assignment 3 New Features 
+## Assignment 3 New Features
+
+### GUI ###
+ 
+ <img src="./docs/images/GUI.PNG" width="300" height="500">
 
 ### Synonym Recognition ###
 
