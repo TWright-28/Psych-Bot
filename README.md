@@ -119,7 +119,7 @@ python3 tests/fileReader.test.py
 
 ### Synonym Recognition ###
 
-**>The system detects synonyms of " Family "**
+**>The bot is capable of detecting the synonyms of the words based on the user input**
 
 <table>
   <tr>
