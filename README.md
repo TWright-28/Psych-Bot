@@ -114,14 +114,15 @@ python3 tests/fileReader.test.py
 <img src="./docs/convo.gif" width="500" height="750">
 
 ### Error case 1 ###
-In this case the bot does not classify the term "gang" in either the "friends" or "family" synonym.
-&nbsp;
+In this case the bot does not understand the term "gang". The program has an issue with the response due to the limited capabilities of the library. The current word list in the library doesn't include enough dictionary to handle all possible words that user may provide to the bot. 
+
 <img src="./docs/images/assign3error1.png">
 
 ### Error case 2 ###
-In this case the bot does not correctly recoginize "goodd" as "good".
-&nbsp;
+In this case the bot does not correctly recoginize "goodd" as "good". This issue occurs due to the limitations of the library we are currently using - PorterStemmer. It has a limited data "object" of information on how to correctly "fix" the error unlike the larger companies(e.g., Google search). 
+
 <img src="./docs/images/assign3error2.png">
+
 
 ## Assignment 3 New Features
 
