@@ -159,7 +159,7 @@ python3 tests/fileReader.test.py
  
  ### Sentiment Analysis ###
  
- **>The system decides if the response is either Positive or Negative**
+ **>the program determines if the user's response has a positive or negative context**
  
  <table>
   <tr>
