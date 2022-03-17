@@ -104,7 +104,6 @@ class Bot:
 			nodeValue = self.findNode(nodeValue['children'][0])
 		else:
 			answer_words = [self.stemmer.stem(word) for word in answer.lower().split(" ")]
-			print(answer_words)
 			for child in nodeValue['children']:
 				child = self.findNode(child)
 				
@@ -128,6 +127,7 @@ class Bot:
 						for answer_word in answer_words:
 							synonyms = [answer_word]
 							synonyms = self.getWordNetSynsetResult(answer_word)
+							synonyms = [self.stemmer.stem(synonym) for synonym in synonyms]
 							if word in synonyms:
 								nodeValue = child
 								break
