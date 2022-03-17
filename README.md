@@ -70,6 +70,11 @@ The project was created for the UBC Okanagan third year level course.
 
 ## Features by Branch
 ![Showing different features developed](./docs/NETWORK.png)
+
+## Dialogue
+
+![Showing different features developed](./docs/convo.gif)
+
 ## Project Demo 
 
 **Sample Demo #1**
