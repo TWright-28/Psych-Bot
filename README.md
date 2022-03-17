@@ -70,27 +70,11 @@ The project was created for the UBC Okanagan third year level course.
 
 ## Features by Branch
 
-![Showing different features developed](./docs/images/newgraph.PNG)
+<img src="./docs/images/newgraph.PNG" width="850" >
 
 ## Dialogue
 
-![Showing different features developed](./docs/convo.gif)
-
-## Project Demo 
-
-**A2: Sample Demo #1**
-
-<img src="./docs/images/good1.png" width="500">
-
-
-**A2: Sample Demo #2**
-
-<img src="./docs/images/good2.png" width="500">
-
-
-**A2: Sample Demo #3**
-
-<img src="./docs/images/good3.png" width="500">
+<img src="./docs/convo.gif" width="500" height="750">
 
 ## Assignment 3 New Features 
 
@@ -108,7 +92,52 @@ The project was created for the UBC Okanagan third year level course.
     <td><img src="./docs/images/syn1.PNG" width="300" height="500"></td>
   </tr>
  </table>
+ 
+ ### POS Tagging ###
+ 
+ **Replying with a question or a therapy word (anxiety / depression / suicide) 
+   Results in no more scheduled time**
+   
+ **Replying with just a question 
+   Results in the system not being able to help**
+   
+ **Replying with anything else 
+   Results in the system concluding the session**
+ 
+ <table>
+  <tr>
+    <td>Question/Therapy words</td>
+    <td>Just Question</td>
+    <td>Other</td>
+  </tr>
+  <tr>
+    <td><img src="./docs/images/syn2.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/syn1.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/syn1.PNG" width="300" height="500"></td>
+  </tr>
+ </table>
+   
+ 
+ 
+ 
+ 
+ 
 
+## Project Demo 
+
+**A2: Sample Demo #1**
+
+<img src="./docs/images/good1.png" width="500">
+
+
+**A2: Sample Demo #2**
+
+<img src="./docs/images/good2.png" width="500">
+
+
+**A2: Sample Demo #3**
+
+<img src="./docs/images/good3.png" width="500">
 
 
 ## Presentation 
