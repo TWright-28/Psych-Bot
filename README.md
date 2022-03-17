@@ -71,6 +71,34 @@ The project was created for the UBC Okanagan third year level course.
 - [Gantt Chart](https://github.com/KentonMewling/Psych-Bot/blob/main/docs/Gantt%20Chart.png)
 - [Network Graph/Branch & Commits](https://github.com/KentonMewling/Psych-Bot/network)
 
+## Unit Tests
+
+### **For Windows**
+&nbsp;
+
+**Step 1:** Open your Powershell command line tool.
+
+**Step 2:** Run the following commands:
+```bash
+python tests/bot.test.py 
+```
+```bash
+python tests/fileReader.test.py
+```
+&nbsp;
+### **For Unix Based Systems**
+&nbsp;
+
+**Step 1:** Open a terminal in your VSCode by going to ***Terminal > New Terminal*** 
+
+**Step 2:** Run the following commands.
+```bash
+python3 tests/bot.test.py
+```
+```bash
+python3 tests/fileReader.test.py
+```
+&nbsp;
 ## Features by Branch
 
 <img src="./docs/images/newgraph.PNG" width="850" >
