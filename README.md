@@ -69,7 +69,7 @@ The project was created for the UBC Okanagan third year level course.
 - [Network Graph/Branch & Commits](https://github.com/KentonMewling/Psych-Bot/network)
 
 ## Features by Branch
-![Showing different features developed](./docs/NETWORK.png)
+![Showing different features developed](./docs/newgraph.PNG)
 
 ## Dialogue
 
