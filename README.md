@@ -6,7 +6,7 @@
 - [Project Documentation](#project-documentation)
 - [Features by Branch](#features-by-branch)
 - [Dialogue](#dialogue)
-- [Assignment 3 New Features](assignment-3-new-features)
+- [Assignment 3 New Features](#assignment-3-new-features)
 - [Project Demo](#project-demo)
 - [Contributors](#contributors)
 - [Presentation](#presentation)
