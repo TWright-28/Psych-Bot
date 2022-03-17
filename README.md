@@ -70,7 +70,7 @@ The project was created for the UBC Okanagan third year level course.
 
 ## Features by Branch
 
-![Showing different features developed](./docs/newgraph.PNG)
+![Showing different features developed](./docs/images/newgraph.PNG)
 
 ## Dialogue
 
@@ -80,21 +80,36 @@ The project was created for the UBC Okanagan third year level course.
 
 **A2: Sample Demo #1**
 
-![First demo of the project](./docs/images/good1.png)
+<img src="./docs/images/good1.png" width="500">
+
 
 **A2: Sample Demo #2**
 
-![Second demo of the project](./docs/images/good2.png)
+<img src="./docs/images/good2.png" width="500">
+
 
 **A2: Sample Demo #3**
 
-![Third demo of the project](./docs/images/good3.png)
+<img src="./docs/images/good3.png" width="500">
 
 ## Assignment 3 New Features 
 
-**Synonym Recognition**
+### Synonym Recognition ###
 
-![Third demo of the project](./docs/images/good3.png)
+**>The system detects synonyms of " Family "**
+
+<table>
+  <tr>
+    <td>Word : Family</td>
+     <td>Word : Folk</td>
+  </tr>
+  <tr>
+    <td><img src="./docs/images/syn2.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/syn1.PNG" width="300" height="500"></td>
+  </tr>
+ </table>
+
+
 
 ## Presentation 
 https://drive.google.com/file/d/1d1YoKrsMo2QLvyRmTXqykamdag-MjdqK/view
