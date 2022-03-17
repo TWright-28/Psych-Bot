@@ -179,14 +179,14 @@ python3 tests/fileReader.test.py
 
 This is a level 0 data flow diagram. It shows the abstract relationships between the user, our graphical user inferface and the bot interact. 
 
-<img src="./docs/images/DFD0.png" width="1000">
+<img src="./docs/images/DFD0updated.png" width="1000">
  
  ### Data Flow Diagram level 1 ###
 
 
 This is a level 1 data flow diagram. It shows a more specific relationship between the user, our graphical user inferface and the bot. This includes the process in which the bot recieves data from the GUI, processes that data through the Porterstemmer as well as many language toolkits to improve the response.
 
-<img src="./docs/images/DFD1.png" width="1000">
+<img src="./docs/images/DFD1updated.png" width="1000">
 
 ## Project Demo 
 
