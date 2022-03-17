@@ -79,10 +79,11 @@ The project was created for the UBC Okanagan third year level course.
 
 **Step 1:** Open your Powershell command line tool.
 
-**Step 2:** Run the following commands:
+**Step 2:** To run the unit test in the Bot class run this command:
 ```bash
 python tests/bot.test.py 
 ```
+**Step 3:** To run the unit test in the FileReader class run this command:
 ```bash
 python tests/fileReader.test.py
 ```
@@ -92,10 +93,11 @@ python tests/fileReader.test.py
 
 **Step 1:** Open a terminal in your VSCode by going to ***Terminal > New Terminal*** 
 
-**Step 2:** Run the following commands.
+**Step 2:** To run the unit test in the Bot class run this command:
 ```bash
 python3 tests/bot.test.py
 ```
+**Step 3:** To run the unit test in the FileReader class run this command:
 ```bash
 python3 tests/fileReader.test.py
 ```
@@ -196,7 +198,7 @@ https://drive.google.com/file/d/1d1YoKrsMo2QLvyRmTXqykamdag-MjdqK/view
 ## Contributors
 
 - [@d3li0n](https://github.com/d3li0n) - GUI, Automated Unit Testing.
-- [@KentonMewling](https://github.com/KentonMewling) - Automated Unit Testing.
-- [@RyanG418](https://github.com/RyanG418) - Documentation.
-- [@vinui409](https://github.com/vinui409) - Documentation.
+- [@KentonMewling](https://github.com/KentonMewling) - Automated Unit Testing, Presentation.
+- [@RyanG418](https://github.com/RyanG418) - Documentation, Presentation.
+- [@vinui409](https://github.com/vinui409) - Documentation, Presentation.
 - [@OKThomas1](https://github.com/OKThomas1) - Core Development. 
