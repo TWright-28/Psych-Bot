@@ -111,12 +111,27 @@ The project was created for the UBC Okanagan third year level course.
     <td>Other</td>
   </tr>
   <tr>
-    <td><img src="./docs/images/syn2.PNG" width="300" height="500"></td>
-    <td><img src="./docs/images/syn1.PNG" width="300" height="500"></td>
-    <td><img src="./docs/images/syn1.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/POS1.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/POS2.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/POS3.PNG" width="300" height="500"></td>
   </tr>
  </table>
-   
+ 
+ ### Sentiment Analysis ###
+ 
+ **The system decides if the response is either Positive or Negative**
+ 
+ <table>
+  <tr>
+    <td>Positive</td>
+    <td>Negative</td>
+  </tr>
+  <tr>
+    <td><img src="./docs/images/1.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/POS2.PNG" width="300" height="500"></td>
+    <td><img src="./docs/images/POS3.PNG" width="300" height="500"></td>
+  </tr>
+ </table>
  
  
  
