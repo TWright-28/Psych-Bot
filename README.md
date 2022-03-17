@@ -114,12 +114,14 @@ python3 tests/fileReader.test.py
 <img src="./docs/convo.gif" width="500" height="750">
 
 ### Error case 1 ###
-In this case the bot does not understand the term "gang".
-<img src="./docs/images/assign3error1.PNG">
+In this case the bot does not classify the term "gang" in either the "friends" or "family" synonym.
+&nbsp;
+<img src="./docs/images/assign3error1.png">
 
 ### Error case 2 ###
 In this case the bot does not correctly recoginize "goodd" as "good".
-<img src="./docs/images/assign3error2.PNG">
+&nbsp;
+<img src="./docs/images/assign3error2.png">
 
 ## Assignment 3 New Features
 
