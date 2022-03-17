@@ -212,4 +212,4 @@ https://drive.google.com/file/d/1d1YoKrsMo2QLvyRmTXqykamdag-MjdqK/view
 - [@KentonMewling](https://github.com/KentonMewling) - Automated Unit Testing, Presentation.
 - [@RyanG418](https://github.com/RyanG418) - Documentation, Presentation.
 - [@vinui409](https://github.com/vinui409) - Documentation, Presentation.
-- [@OKThomas1](https://github.com/OKThomas1) - PortStemmer, POS, Sentimental Analysis, and Synonym Recognition development.
+- [@OKThomas1](https://github.com/OKThomas1) - PorterStemmer, POS, Sentimental Analysis, and Synonym Recognition development.
