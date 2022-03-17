@@ -208,8 +208,8 @@ https://drive.google.com/file/d/1d1YoKrsMo2QLvyRmTXqykamdag-MjdqK/view
 
 ## Contributors
 
-- [@d3li0n](https://github.com/d3li0n) - GUI, Automated Unit Testing.
+- [@d3li0n](https://github.com/d3li0n) - GUI, Automated Unit Testing, Code Refactoring, Project Management.
 - [@KentonMewling](https://github.com/KentonMewling) - Automated Unit Testing, Presentation.
 - [@RyanG418](https://github.com/RyanG418) - Documentation, Presentation.
 - [@vinui409](https://github.com/vinui409) - Documentation, Presentation.
-- [@OKThomas1](https://github.com/OKThomas1) - Core Development. 
+- [@OKThomas1](https://github.com/OKThomas1) - PortStemmer, POS, Sentimental Analysis, and Synonym Recognition development.
