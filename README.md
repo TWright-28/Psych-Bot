@@ -4,6 +4,7 @@
 - [Project Setup](#project-setup)
 - [Project Description](#project-description)
 - [Project Documentation](#project-documentation)
+- [Unit Tests](#unit-tests)
 - [Features by Branch](#features-by-branch)
 - [Dialogue](#dialogue)
 - [Assignment 3 New Features](#assignment-3-new-features)
